@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configurations xmlns:xpp="http://q37.info/ns/xpp">
+ <Configuration target="dpkq">
+  <Parameters>
+   <Language>en</Language>
+   <Command>Process</Command>
+   <Namespace>
+    <Label>dpk</Label>
+    <URI>http://q37.info/ns/dpk/</URI>
+   </Namespace>
+  </Parameters>
+  <Definitions>
+   <Projects>
+    <Project id="Collection" Type="Remote">Collections.xprj</Project>
+   </Projects>
+   <Projects>
+    <Project id="Element" Type="Remote">Elements.xprj</Project>
+   </Projects>
+  </Definitions>
+  <Locale>
+   <Translations message="VersionCommandDescription">
+    <Translation language="fr">Affiche la version du programme.</Translation>
+    <Translation language="en">Displays the version of the program.</Translation>
+   </Translations>
+   <Translations message="LicenseCommandDescription">
+    <Translation language="fr">Affiche la licence du programme.</Translation>
+    <Translation language="en">Displays the program license.</Translation>
+   </Translations>
+   <Translations message="UsageCommandDescription">
+    <Translation language="fr">Affiche cette page.</Translation>
+    <Translation language="en">Displays this page.</Translation>
+   </Translations>
+   <Translations text="ProcessCommandDescription">
+    <Translation language="fr">Traite les données.</Translation>
+    <Translation language="en">Process data.</Translation>
+   </Translations>
+   <Translations text="NamespaceOptionDescription">
+    <Translation language="fr">Espace de nom à utiliser.</Translation>
+    <Translation language="en">Namespace to use.</Translation>
+   </Translations>
+   <Translations text="NamespaceOptionLabel">
+    <Translation language="fr">ns</Translation>
+    <Translation language="en">ns</Translation>
+   </Translations>
+   <Translations text="ProjectFilenameArgumentDescription">
+    <Translation language="fr">Nom du fichier projet.</Translation>
+    <Translation language="en">Project file name.</Translation>
+   </Translations>
+   <Translations text="ProjectFilenameArgumentLabel">
+    <Translation language="fr">projet</Translation>
+    <Translation language="en">project</Translation>
+   </Translations>
+   <Translations text="IdArgumentDescription">
+    <Translation language="fr">Identifiant de fiche ('0': toutes; absent: fiche aléatoire).</Translation>
+    <Translation language="en">Record id ('0': all records; missing: random record).</Translation>
+   </Translations>
+   <Translations text="IdArgumentLabel">
+    <Translation language="fr">id</Translation>
+    <Translation language="en">id</Translation>
+   </Translations>
+  </Locale>
+  <Arguments>
+   <Argument id="Usage" Description="UsageCommandDescription" long="help" Value="Usage"/>
+   <Argument id="Version" Description="VersionCommandDescription" long="version" Value="Version"/>
+   <Argument id="License" Description="LicenseCommandDescription" long="license" Value="License"/>
+   <Argument id="ProcessCommand" Description="ProcessCommandDescription" long="process" short="p" Value="Process" Usage="[%NamespaceOption%] %ProjectFilenameArgument% [%IdArgument%]"/>
+   <Argument id="NamespaceOption" Description="NamespaceOptionDescription" long="namespace" short="n" Path="Namespace/Label" Label="NamespaceOptionLabel"/>
+   <Argument id="ProjectFilenameArgument" Description="ProjectFilenameArgumentDescription" Label="ProjectFilenameArgumentLabel" Path="Project[Type=&quot;Remote&quot;]"/>
+   <Argument id="IdArgument" Description="IdArgumentDescription" Label="IdArgumentLabel" Path="Id"/>
+   <Layouts>
+    <Layout command="Process">
+     <Link index="0" Target="ProjectFilenameArgument"/>
+     <Link index="1" Target="IdArgument"/>
+    </Layout>
+   </Layouts>
+  </Arguments>
+ </Configuration>
+</Configurations>
